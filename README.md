@@ -1,56 +1,47 @@
-# Getting Started Todo App
+<div style="display: flex; align-items: center; gap: 10px;">
+  <img src="https://skillicons.dev/icons?i=react,vite,nodejs,php,mysql" style="height: 40px;"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/traefikproxy/traefikproxy-original.svg" style="height: 40px;"/> 
+</div>
 
-This project provides a sample todo list application. It demonstrates all of
-the current Docker best practices, ranging from the Compose file, to the
-Dockerfile, to CI (using GitHub Actions), and running tests. It's intended to 
-be well-documented to ensure anyone can come in and easily learn.
+# React PHP Todo App
 
-## Application architecture
+This repository provides a complete, modern development environment built with Docker Compose. It features a React/Node.js application served via a Traefik reverse proxy, uses Vite for fast frontend hot-reloading, and persists data with a MySQL container, showcasing robust, multi-service container orchestration.
+
+## Application Architecture
 
 ![image](https://github.com/docker/getting-started-todo-app/assets/313480/c128b8e4-366f-4b6f-ad73-08e6652b7c4d)
 
 
-This sample application is a simple React frontend that receives data from a
-Node.js backend. 
+This is a React/Node.js/MySQL starter application designed around Docker best practices. The architecture includes:
 
-When the application is packaged and shipped, the frontend is compiled into
-static HTML, CSS, and JS and then bundled with the backend where it is then
-served as static assets. So no... there is no server-side rendering going on
-with this sample app.
+- Vite: Used for rapid, hot-reloading development in the frontend container.
 
-During development, since the backend and frontend need different dev tools, 
-they are split into two separate services. This allows [Vite](https://vitejs.dev/) 
-to manage the React app while [nodemon](https://nodemon.io/) works with the 
-backend. With containers, it's easy to separate the development needs!
+- MySQL: The containerized relational database for persistence.
+
+- Traefik: Acts as the cluster-level reverse proxy and load balancer, managing traffic to the application services.
 
 ## Development
 
 To spin up the project, simply install Docker Desktop and then run the following 
 commands:
 
-```
-git clone https://github.com/docker/getting-started-todo-app
-cd getting-started-todo-app
-docker compose up --watch
+```bash
+git clone https://github.com/mirakib/react-mysql-to-do-app.git
 ```
 
-You'll see several container images get downloaded from Docker Hub and, after a
-moment, the application will be up and running! No need to install or configure
-anything on your machine!
+```bash
+cd react-mysql-to-do-app
+```
 
-Simply open to [http://localhost](http://localhost) to see the app up and running!
+```bash
+docker compose up -d
+```
 
-Any changes made to either the backend or frontend should be seen immediately
-without needing to rebuild or restart the containers.
 
-To help with the database, the development stack also includes phpMyAdmin, which
-can be accessed at [http://db.localhost](http://db.localhost) (most browsers will 
-resolve `*.localhost` correctly, so no hosts file changes should be required).
-
-### Tearing it down
+## Tearing it down
 
 When you're done, simply remove the containers by running the following command:
 
-```
+```bash
 docker compose down
 ```
