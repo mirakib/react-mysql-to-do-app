@@ -27,7 +27,7 @@ services:
         - path: ./backend/package.json
           action: rebuild
     labels:
-      traefik.http.routers.backend.rule: Host(`localhost`) && PathPrefix(`/api`)
+      traefik.http.routers.backend.rule: Host(`localhost`,`192.168.178.133`) && PathPrefix(`/api`)
       traefik.http.services.backend.loadbalancer.server.port: 3000
 
   client:
@@ -42,7 +42,7 @@ services:
         - path: ./client/package.json
           action: rebuild
     labels:
-      traefik.http.routers.client.rule: Host(`localhost`)
+      traefik.http.routers.client.rule: Host(`localhost`,`192.168.178.133`)
       traefik.http.services.client.loadbalancer.server.port: 5173
 
   mysql:
