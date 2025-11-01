@@ -54,6 +54,10 @@ cd react-mysql-to-do-app
 docker compose up -d
 ```
 
+## Output
+
+![alt text](image.png)
+
 
 ## Tearing it down
 
