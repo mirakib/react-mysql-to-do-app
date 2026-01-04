@@ -37,7 +37,10 @@ This is a React/Node.js/MySQL starter application designed around Docker best pr
     - No exposure of MySQL port 3306 to the host is required for the backend to connect.
 
 
-## Development
+## Deploy the application
+
+>[!WARNING]
+> Must change IP address with your host in compose file.
 
 To spin up the project, simply install Docker Desktop and then run the following 
 commands:
